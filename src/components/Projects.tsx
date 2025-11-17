@@ -8,13 +8,13 @@ const Projects = () => {
       title: "Blue Dream Constructions",
       description: "A Fullstack Web Application for the Blue Dream Constructions company, showcasing project portfolios and client management.",
       technologies: ["React", "Node.js", "PostgreSQL", "TypeScript", "Tailwind CSS"],
-      Url: "bluedreamgroups.com",
+      Url: "www.bluedreamgroups.com",
     },
     {
       title: "The Templers Cafe",
       description: "A unique and innovative website for the Templers Cafe, highlighting their menu, ambiance, and customer reviews.",
       technologies: ["React", "Next.js", "MongoDB","Tailwind CSS"],
-      Url: "thetemplerscafe.com",
+      Url: "www.thetemplerscafe.com",
     },
     {
       title: "Zencuit Pvt Ltd",
@@ -63,7 +63,7 @@ const Projects = () => {
                     variant="outline"
                     size="sm"
                     className="flex-1"
-                    onClick={() => window.open(`https://www.${project.Url}`, "_blank")}
+                    onClick={() => window.open(`https://${project.Url}`, "_blank")}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     URL
