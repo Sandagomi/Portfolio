@@ -1,4 +1,4 @@
-# Sandagomi Vihanga - Portfolio Website# Sandagomi Vihanga - Portfolio# Welcome to your Lovable project
+# Sandagomi Vihanga - Portfolio Website# Sandagomi Vihanga
 
 
 
