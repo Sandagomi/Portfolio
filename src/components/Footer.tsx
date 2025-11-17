@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, FileText } from "lucide-react";
+import { Github, Linkedin, Mail, FileText, Instagram } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -31,7 +31,7 @@ const Footer = () => {
             <h4 className="font-semibold mb-4">Connect</h4>
             <div className="flex gap-3">
               <a
-                href="https://github.com/sandagomi"
+                href="https://github.com/Sandagomi"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 bg-secondary hover:bg-primary hover:text-primary-foreground rounded-lg transition-smooth"
@@ -53,6 +53,14 @@ const Footer = () => {
                 className="p-2 bg-secondary hover:bg-primary hover:text-primary-foreground rounded-lg transition-smooth"
               >
                 <FileText className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/sandagomi_vihanga/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-secondary hover:bg-primary hover:text-primary-foreground rounded-lg transition-smooth"
+              >
+                <Instagram className="w-5 h-5" />
               </a>
               <a
                 href="mailto:sandagomi.v.i@gmail.com"

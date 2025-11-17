@@ -5,25 +5,22 @@ import { ExternalLink, Github } from "lucide-react";
 const Projects = () => {
   const projects = [
     {
-      title: "Your Featured Project 1",
-      description: "Add your fullstack project description here. Highlight the technologies used, key features, and the problems it solves.",
-      technologies: ["React", "Node.js", "PostgreSQL", "TypeScript"],
-      demoUrl: "#",
-      githubUrl: "#",
+      title: "Blue Dream Constructions",
+      description: "A Fullstack Web Application for the Blue Dream Constructions company, showcasing project portfolios and client management.",
+      technologies: ["React", "Node.js", "PostgreSQL", "TypeScript", "Tailwind CSS"],
+      Url: "bluedreamgroups.com",
     },
     {
-      title: "Your Featured Project 2",
-      description: "Add your second fullstack project description. Showcase your technical skills and product thinking.",
-      technologies: ["Next.js", "MongoDB", "GraphQL", "Tailwind CSS"],
-      demoUrl: "#",
-      githubUrl: "#",
+      title: "The Templers Cafe",
+      description: "A unique and innovative website for the Templers Cafe, highlighting their menu, ambiance, and customer reviews.",
+      technologies: ["React", "Next.js", "MongoDB","Tailwind CSS"],
+      Url: "thetemplerscafe.com",
     },
     {
-      title: "Your Featured Project 3",
-      description: "Add your third fullstack project. Demonstrate your ability to build scalable, production-ready applications.",
-      technologies: ["React Native", "Firebase", "TypeScript", "Redux"],
-      demoUrl: "#",
-      githubUrl: "#",
+      title: "Zencuit Pvt Ltd",
+      description: "A Fullstack Web Application for the Zencuit Pvt Ltd",
+      technologies: ["React", "PostgreSQL", "TypeScript", "Redux","Tailwind CSS"],
+      Url: "zencuit.com",
     },
   ];
 
@@ -66,20 +63,12 @@ const Projects = () => {
                     variant="outline"
                     size="sm"
                     className="flex-1"
-                    onClick={() => window.open(project.demoUrl, "_blank")}
+                    onClick={() => window.open(`https://${project.Url}`, "_blank")}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
-                    Demo
+                    URL
                   </Button>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    className="flex-1"
-                    onClick={() => window.open(project.githubUrl, "_blank")}
-                  >
-                    <Github className="w-4 h-4 mr-2" />
-                    Code
-                  </Button>
+                 
                 </div>
               </div>
             </Card>
@@ -90,7 +79,7 @@ const Projects = () => {
           <p className="text-muted-foreground mb-4">Want to see more of my work?</p>
           <Button
             variant="outline"
-            onClick={() => window.open("https://github.com/sandagomi", "_blank")}
+            onClick={() => window.open("https://github.com/Sandagomi", "_blank")}
           >
             <Github className="w-4 h-4 mr-2" />
             View All on GitHub

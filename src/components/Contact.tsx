@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Linkedin, Github, FileText } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Github, FileText, Download, Instagram } from "lucide-react";
+import resumePdf from "@/assets/Resume/Sandagomi Vihanga Resume.pdf";
 
 const Contact = () => {
   const contactInfo = [
@@ -34,7 +35,7 @@ const Contact = () => {
     {
       icon: Github,
       label: "GitHub",
-      href: "https://github.com/sandagomi",
+      href: "https://github.com/Sandagomi",
       color: "hover:text-foreground",
     },
     {
@@ -42,6 +43,12 @@ const Contact = () => {
       label: "Medium",
       href: "https://medium.com/@sandagomi.v.i",
       color: "hover:text-foreground",
+    },
+    {
+      icon: Instagram,
+      label: "Instagram",
+      href: "https://www.instagram.com/sandagomi_vihanga/",
+      color: "hover:text-[#E4405F]",
     },
   ];
 
@@ -102,18 +109,23 @@ const Contact = () => {
           </div>
 
           <Card className="p-8 gradient-card text-center">
-            <h3 className="text-xl font-bold mb-4">Ready to Work Together?</h3>
-            <p className="text-muted-foreground mb-6">
-              Whether you have a project in mind or just want to chat, feel free to reach out!
-            </p>
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 shadow-glow"
-              onClick={() => window.location.href = "mailto:sandagomi.v.i@gmail.com"}
-            >
-              <Mail className="w-5 h-5 mr-2" />
-              Send Me an Email
-            </Button>
+            <div className="flex flex-col items-center gap-4">
+              <div className="p-3 bg-primary/20 rounded-full">
+                <Download className="w-8 h-8 text-primary" />
+              </div>
+              <h3 className="text-2xl font-bold">Want to Know More?</h3>
+              <p className="text-muted-foreground mb-2 max-w-2xl">
+                Download my comprehensive CV for detailed information about my experience, skills, and achievements.
+              </p>
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 shadow-glow"
+                onClick={() => window.open(resumePdf, '_blank')}
+              >
+                <Download className="w-5 h-5 mr-2" />
+                Download My CV
+              </Button>
+            </div>
           </Card>
         </div>
       </div>

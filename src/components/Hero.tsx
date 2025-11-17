@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, FileText } from "lucide-react";
+import { Github, Linkedin, Mail, FileText, Instagram } from "lucide-react";
 import profileImage from "@/assets/profile.png";
 
 const Hero = () => {
@@ -13,7 +13,7 @@ const Hero = () => {
           <div className="space-y-6 animate-slide-up">
             <div className="inline-block">
               <span className="px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-medium">
-                Technical Product Manager
+                Product & Technology Leader
               </span>
             </div>
             <h1 className="text-5xl lg:text-6xl font-bold leading-tight">
@@ -51,7 +51,7 @@ const Hero = () => {
             </div>
             <div className="flex gap-4 pt-4">
               <a
-                href="https://github.com/sandagomi"
+                href="https://github.com/Sandagomi"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-3 bg-secondary hover:bg-secondary/80 rounded-lg transition-smooth"
@@ -73,6 +73,14 @@ const Hero = () => {
                 className="p-3 bg-secondary hover:bg-secondary/80 rounded-lg transition-smooth"
               >
                 <FileText className="w-5 h-5" />
+              </a>
+              <a
+                href="https://www.instagram.com/sandagomi_vihanga/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 bg-secondary hover:bg-secondary/80 rounded-lg transition-smooth"
+              >
+                <Instagram className="w-5 h-5" />
               </a>
               <a
                 href="mailto:sandagomi.v.i@gmail.com"
