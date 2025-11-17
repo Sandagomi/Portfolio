@@ -12,7 +12,7 @@ services:
       - key: PORT
         value: 3001
       - key: MEDIUM_USERNAME
-        value: @sandagomi.v.i
+        value: "@sandagomi.v.i"
       - key: NODE_ENV
         value: production
 
