@@ -63,7 +63,7 @@ const Projects = () => {
                     variant="outline"
                     size="sm"
                     className="flex-1"
-                    onClick={() => window.open(`https://${project.Url}`, "_blank")}
+                    onClick={() => window.open(`https://www.${project.Url}`, "_blank")}
                   >
                     <ExternalLink className="w-4 h-4 mr-2" />
                     URL
