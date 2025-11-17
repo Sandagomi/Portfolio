@@ -157,14 +157,9 @@ const Blog = () => {
                     <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-smooth line-clamp-2">
                       {article.title}
                     </h3>
-                    <p className="text-xs text-muted-foreground mb-3">
+                    <p className="text-xs text-muted-foreground mb-4 flex-grow">
                       {formatDate(article.pubDate)}
                     </p>
-                    {article.description && (
-                      <p className="text-sm text-muted-foreground mb-4 flex-grow line-clamp-3">
-                        {article.description}
-                      </p>
-                    )}
                     <div className="flex items-center text-primary text-sm font-medium group-hover:gap-2 transition-smooth">
                       Read More
                       <ExternalLink className="w-4 h-4 ml-1 group-hover:ml-0 transition-smooth" />
