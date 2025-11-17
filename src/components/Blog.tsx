@@ -9,42 +9,85 @@ interface Article {
   pubDate: string;
   thumbnail?: string;
   description?: string;
+  author?: string;
+  categories?: string[];
 }
 
 const Blog = () => {
   const [articles, setArticles] = useState<Article[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Note: Medium RSS might have CORS issues. In production, you'd need a backend proxy.
-    // For now, we'll show placeholder articles
-    const placeholderArticles = [
-      {
-        title: "Your Latest Medium Article 1",
-        link: "https://medium.com/@sandagomi.v.i",
-        pubDate: new Date().toISOString(),
-        description: "Click to read your latest insights on product management and development...",
-      },
-      {
-        title: "Your Latest Medium Article 2",
-        link: "https://medium.com/@sandagomi.v.i",
-        pubDate: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
-        description: "Explore more of your thoughts on technology and innovation...",
-      },
-      {
-        title: "Your Latest Medium Article 3",
-        link: "https://medium.com/@sandagomi.v.i",
-        pubDate: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString(),
-        description: "Discover your perspectives on fullstack development...",
-      },
-    ];
-
-    // Simulate API call
-    setTimeout(() => {
-      setArticles(placeholderArticles);
-      setLoading(false);
-    }, 500);
+    fetchMediumArticles();
   }, []);
+
+  const fetchMediumArticles = async () => {
+    try {
+      setLoading(true);
+      setError(null);
+      
+      const response = await fetch('http://localhost:3001/api/medium/articles');
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch articles');
+      }
+
+      const data = await response.json();
+      
+      if (data.success && data.articles) {
+        // Keep only the 6 most recent articles
+        setArticles(data.articles.slice(0, 6));
+      } else {
+        throw new Error('Invalid response format');
+      }
+    } catch (err) {
+      console.error('Error fetching Medium articles:', err);
+      setError('Unable to load articles. Make sure the server is running.');
+      
+      // Fallback to placeholder articles (limited to 6)
+      setArticles([
+        {
+          title: "Your Latest Medium Article 1",
+          link: "https://medium.com/@sandagomi.v.i",
+          pubDate: new Date().toISOString(),
+          description: "Click to read your latest insights on product management and development...",
+        },
+        {
+          title: "Your Latest Medium Article 2",
+          link: "https://medium.com/@sandagomi.v.i",
+          pubDate: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
+          description: "Explore more of your thoughts on technology and innovation...",
+        },
+        {
+          title: "Your Latest Medium Article 3",
+          link: "https://medium.com/@sandagomi.v.i",
+          pubDate: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString(),
+          description: "Discover your perspectives on fullstack development...",
+        },
+        {
+          title: "Your Latest Medium Article 4",
+          link: "https://medium.com/@sandagomi.v.i",
+          pubDate: new Date(Date.now() - 21 * 24 * 60 * 60 * 1000).toISOString(),
+          description: "Learn about software architecture and best practices...",
+        },
+        {
+          title: "Your Latest Medium Article 5",
+          link: "https://medium.com/@sandagomi.v.i",
+          pubDate: new Date(Date.now() - 28 * 24 * 60 * 60 * 1000).toISOString(),
+          description: "Insights on agile methodologies and team collaboration...",
+        },
+        {
+          title: "Your Latest Medium Article 6",
+          link: "https://medium.com/@sandagomi.v.i",
+          pubDate: new Date(Date.now() - 35 * 24 * 60 * 60 * 1000).toISOString(),
+          description: "Deep dive into cloud technologies and DevOps practices...",
+        },
+      ]);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
@@ -69,11 +112,16 @@ const Blog = () => {
             My thoughts on product management, software development, and the tech industry.
             Read more on Medium.
           </p>
+          {error && (
+            <div className="mt-4 p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-lg text-sm text-yellow-600">
+              {error}
+            </div>
+          )}
         </div>
 
         {loading ? (
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
+            {[1, 2, 3, 4, 5, 6].map((i) => (
               <Card key={i} className="p-6 animate-pulse">
                 <div className="h-4 bg-muted rounded mb-4"></div>
                 <div className="h-3 bg-muted rounded mb-2"></div>
@@ -86,24 +134,39 @@ const Blog = () => {
             {articles.map((article, index) => (
               <Card
                 key={index}
-                className="p-6 gradient-card hover:shadow-glow transition-smooth group cursor-pointer"
+                className="gradient-card hover:shadow-glow transition-smooth group cursor-pointer overflow-hidden"
                 onClick={() => window.open(article.link, "_blank")}
               >
                 <div className="flex flex-col h-full">
-                  <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-smooth line-clamp-2">
-                    {article.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground mb-3">
-                    {formatDate(article.pubDate)}
-                  </p>
-                  {article.description && (
-                    <p className="text-sm text-muted-foreground mb-4 flex-grow line-clamp-3">
-                      {article.description}
-                    </p>
+                  {article.thumbnail ? (
+                    <div className="mb-4">
+                      <img 
+                        src={article.thumbnail} 
+                        alt={article.title}
+                        className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  ) : (
+                    <div className="mb-4 bg-gradient-to-br from-accent/20 to-primary/20 h-48 flex items-center justify-center">
+                      <BookOpen className="w-12 h-12 text-accent/40" />
+                    </div>
                   )}
-                  <div className="flex items-center text-primary text-sm font-medium group-hover:gap-2 transition-smooth">
-                    Read More
-                    <ExternalLink className="w-4 h-4 ml-1 group-hover:ml-0 transition-smooth" />
+                  <div className="px-6 pb-6 flex flex-col flex-grow">
+                    <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-smooth line-clamp-2">
+                      {article.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground mb-3">
+                      {formatDate(article.pubDate)}
+                    </p>
+                    {article.description && (
+                      <p className="text-sm text-muted-foreground mb-4 flex-grow line-clamp-3">
+                        {article.description}
+                      </p>
+                    )}
+                    <div className="flex items-center text-primary text-sm font-medium group-hover:gap-2 transition-smooth">
+                      Read More
+                      <ExternalLink className="w-4 h-4 ml-1 group-hover:ml-0 transition-smooth" />
+                    </div>
                   </div>
                 </div>
               </Card>
