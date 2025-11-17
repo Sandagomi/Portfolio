@@ -21,7 +21,6 @@ services:
     name: portfolio-frontend
     runtime: static
     env: static
-    region: oregon
     plan: free
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
