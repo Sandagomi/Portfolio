@@ -20,7 +20,7 @@ const Projects = () => {
       title: "Zencuit Pvt Ltd",
       description: "A Fullstack Web Application for the Zencuit Pvt Ltd",
       technologies: ["React", "PostgreSQL", "TypeScript", "Redux","Tailwind CSS"],
-      Url: "zencuit.com",
+      Url: "www.zencuit.com",
     },
   ];
 
