@@ -6,16 +6,14 @@ A modern, responsive portfolio website showcasing my work as a Technical Product
 
 
 
-![Portfolio](https://img.shields.io/badge/React-18.3-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue) ![Vite](https://img.shields.io/badge/Vite-5.4-purple)A modern, responsive portfolio website built to showcase my work as a Technical Product Manager and Full-Stack Developer. Features dynamic blog integration, downloadable CV, and a comprehensive project showcase.
-
 
 
 ## 🌟 Features
 
 
 
-- **Responsive Design** - Optimized for all devices![Portfolio Preview](https://img.shields.io/badge/React-18.3-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue) ![Vite](https://img.shields.io/badge/Vite-5.4-purple)A modern, responsive portfolio website showcasing my work as a Technical Product Manager and Full-Stack Developer.## Project info
-
+- **Responsive Design** - Optimized for all devices
+  
 - **Dark/Light Theme** - Automatic theme switching
 
 - **Medium Blog Integration** - Real-time RSS feed fetching
@@ -27,11 +25,6 @@ A modern, responsive portfolio website showcasing my work as a Technical Product
 - **Project Showcase** - Featured development work
 
 - **Social Integration** - GitHub, LinkedIn, Medium, Instagram
-
-
-
-## 🛠️ Tech Stack- **Responsive Design** - Fully optimized for desktop, tablet, and mobile devices## Features**URL**: https://lovable.dev/projects/1921413f-c802-40b4-932d-3f254deb3a55
-
 
 
 ### Frontend- **Dark/Light Theme** - Automatic theme switching support
